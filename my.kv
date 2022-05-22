@@ -1,0 +1,118 @@
+<MyRoot>
+    BoxLayout:
+        id: main_window
+        orientation: 'vertical'
+        BoxLayout:
+            id: text_section
+            orientation: 'horizontal'
+            size_hint: 1, .07
+            TextInput:
+                id: text_result
+                readonly: True
+                size_hint: 4, 1
+            TextInput:
+                id: text_count
+                readonly: True
+                size_hint: .3, 1
+            TextInput:
+                id: text_price
+                readonly: True
+
+        BoxLayout:
+            id: dump_section
+            orientation: 'horizontal'
+            TextInput:
+                id: dump_result
+                readonly: True
+                text: ''
+                size_hint: 5, 1
+                use_bubble: False
+            TextInput:
+                id: dump_count
+                readonly: True
+                size_hint: .3, 1
+            TextInput:
+                id: dump_price
+                readonly: True
+            TextInput:
+                id: dump_sum
+                readonly: True
+
+        GridLayout:
+            id: button_section
+            cols: 3
+            size_hint: 1, .3
+            Spinner:
+                id: steel
+                text: 's_201'
+                values: 's_201', 's_304', 's_321'
+                on_text: root.print_result()
+
+            Spinner:
+                id: towchina
+                text: '0.5'
+                values: '0.5', '0.8', '1'
+                on_text: root.print_result()
+            Label:
+                id: total
+                text: ':::Total:::'
+            Button:
+                id: sndw
+                text: 'Сендвіч'
+                color: 1, 1, 1, 1
+                on_press: root.f_sendwich()
+
+            Button:
+                id: gola
+                text: 'Гола'
+                color: 1, 1, 1, 1
+                on_press: root.f_gola()
+
+            Spinner:
+                id: diametr
+                text: 'Діаметр'
+                values: ''
+                on_text: root.print_result()
+            Spinner:
+                id: zkn
+                text: 'Закінчення'
+                values: ''
+                on_text: root.f_item(self)
+            Spinner:
+                id: trnk
+                text: 'Трійник'
+                values: ''
+                on_text: root.f_item(self)
+            Spinner:
+                id: tube
+                text: 'Труба'
+                values: ''
+                on_text: root.f_item(self)
+            Spinner:
+                id: krpg
+                text: 'Кріплення'
+                values: 'Скоба', 'Розтяжка', 'Розв. платформа', 'Кронштейн 500', 'Кронштейн 1000', 'Хомут обжимний', 'Хомут 0-100мм дист', 'Хомут 0-300мм дист'
+                on_text: root.f_item(self)
+            Spinner:
+                id: koleno
+                text: 'Коліно'
+                values: ''
+                on_text: root.f_item(self)
+            Spinner:
+                id: other
+                text: 'Інше'
+                values: ''
+                on_text: root.f_item(self)
+            Spinner:
+                id: count
+                text: 'шт'
+                values: '1', '2', '3', '4', '5', '6', '7', '8', '9'
+                on_text: root.count()
+            Button:
+                id: clear_text
+                text: 'Clear'
+                on_press: root.clear()
+            Button:
+                id: ok
+                text: 'OK'
+                on_press: root.ok_this()
